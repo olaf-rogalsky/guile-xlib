@@ -1,6 +1,7 @@
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
 #include <libguile.h>
+#include <string.h>
 
 /* Compatibility for old Guiles. */
 #ifndef SCM_VECTOR_LENGTH
@@ -1710,13 +1711,13 @@ SCM_DEFINE (scm_x_copy_gc_x, "x-copy-gc!", 2, 0, 1,
 
 /* DRAWING (NON-TEXT) */
 
-static shorts_per_datum[5] = { 6, 2, 2, 4, 4 };
+static int shorts_per_datum[5] = { 6, 2, 2, 4, 4 };
 
 #define XDATACONV_UNKNOWN     0
 #define XDATACONV_REQUIRED    1
 #define XDATACONV_UNNECESSARY 2
 
-static data_conversion[5] = {
+static int data_conversion[5] = {
   XDATACONV_UNKNOWN,
   XDATACONV_UNKNOWN,
   XDATACONV_UNKNOWN,
@@ -1724,7 +1725,7 @@ static data_conversion[5] = {
   XDATACONV_UNKNOWN
 };
 
-static datum_size[5] = {
+static size_t datum_size[5] = {
   sizeof (XArc),
   sizeof (XPoint),
   sizeof (XSegment),

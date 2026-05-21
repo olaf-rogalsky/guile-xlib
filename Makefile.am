@@ -1,35 +1,47 @@
-GUILE_CFLAGS  = @GUILE_CFLAGS@
-GUILE_LIBS = @GUILE_LIBS@
+#
+# include subdirs
+#
 
-## Process this file with Automake to create Makefile.in
+SUBDIRS = src
 
-ACLOCAL_AMFLAGS = -I m4
 
-AUTOMAKE_OPTIONS = gnu
+#
+# rule for creation of an arch pkg
+#
 
-lib_LTLIBRARIES = libguilexlib.la
+.PHONY: arch-pkg
+arch-pkg: all
+	makepkg -c -f -D "$(top_srcdir)/pkg/arch"
 
-BUILT_SOURCES = xlib.x
-libguilexlib_la_SOURCES = xlib.c $(BUILT_SOURCES)
-libguilexlib_la_LDFLAGS = -version-info 0:0 -export-dynamic 
-libguilexlib_la_CFLAGS = $(GUILE_CFLAGS)
-libguilexlib_la_LIBADD = $(X_LIBS) $(X_PRE_LIBS) -lX11 $(X_EXTRA_LIBS) $(GUILE_LIBS)
 
-scmdatadir = $(datadir)/guile/xlib
-scmdata_DATA = xlib.scm
+#
+# rules for clean and maintainer-clean targets
+#
 
-EXTRA_DIST = $(scmdata_DATA) autogen.sh
+CLEANFILES = \
+	Makefile.in \
+	config.guess~ \
+	config.sub~ \
+	configure.ac~ \
+	configure~ \
+	src/*.info \
+	src/Makefile.in \
+	"$(top_srcdir)"/pkg/arch/guile-xlib-*.pkg.* 
 
-## We assume the user has already installed Guile.
-SUFFIXES = .x
-SNARF = guile-snarf
-.c.x:
-	$(SNARF) $(DEFS) $(INCLUDES) $(GUILE_CFLAGS) $(CPPFLAGS) $(CFLAGS) $< > $@
+clean-local:
+	-rm -f $(CLEANFILES)
 
-info_TEXINFOS = guile-xlib.texi
-guile_xlib_TEXINFOS = xlib.texi
+MAINTAINERCLEANFILES = \
+	$(CLEANFILES) \
+	compile \
+	config.guess \
+	config.sub \
+	depcomp \
+	install-sh \
+	ltmain.sh \
+	missing \
+	src/texinfo.tex
 
-## Add -MG to make the .x magic work with auto-dep code.
-MKDEP = gcc -M -MG $(DEFS) $(INCLUDES) $(CPPFLAGS) $(GUILE_CFLAGS) $(CFLAGS)
+maintainer-clean-local:
+	-rm -f $(MAINTAINERCLEANFILES)
 
-CLEANFILES = *.x

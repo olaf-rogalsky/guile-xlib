@@ -10,3 +10,7 @@ wrote the Texinfo reference manual.
 
 Mark Witmer:
 ported guile-xlib to guile-2.0
+
+Olaf Rogalsky:
+modernized the autoconf buildprocess. The library now should work with
+guile-3.0.

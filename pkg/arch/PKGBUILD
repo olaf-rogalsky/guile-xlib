@@ -1,0 +1,14 @@
+# Maintainer: Olaf Rogalsky <y1rog@blaubaer>
+pkgname=guile-xlib
+pkgver=0.2
+pkgrel=1
+arch=('i686' 'x86_64')
+license=('GPL')
+depends=(guile)
+
+package() {
+  cd "$srcdir/../../.."
+  make DESTDIR="$pkgdir" install
+}
+
+# vim:set ts=2 sw=2 et:

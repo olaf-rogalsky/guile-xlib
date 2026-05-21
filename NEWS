@@ -2,11 +2,25 @@ guile2-xlib NEWS --- history of user-visible changes.  -*- text -*-
 
 See the end for copying conditions.
 
-guile2-xlib Copyright (C) 2013 Mark Witmer
+guile-xlib Repackaged 2026 Olaf Rogalsky
 
+Based on guile2-xlib Copyright (C) 2013 Mark Witmer
 Based on guile-xlib Copyright (C) 2001 Neil Jerram
 
-Please send guile2-xlib bug reports to mark@markwitmer.com.
+Please send guile-xlib bug reports to olaf.rogalsky@gmail.com
+
+
+Changes since (guile2-xlib)
+Only Build process, see ChangeLog. To build from scratch:
+
+$ autoreconf -fiv
+$ ./configure --prefix=/usr
+$ make
+$ # optionally
+$ make install
+$ # or
+$ make archpkg
+$ sudo pacman -U pkg/arch/guile-xlib*tar*
 
 
 Changes since (guile-xlib) release 0.4

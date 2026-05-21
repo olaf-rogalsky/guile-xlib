@@ -1,4 +1,21 @@
-This is a guile2-xlib, a guile 2.0-compatible fork of guile-xlib.    -*- text -*-
+This is a guile-xlib, a guile 3.0-compatible fork of guile2-xlib,    -*- text -*-
+which is a guile 2.0-compatible fork of guile-xlib.
+
+The fork only modernizes the autoconf build process and nothing more.
+
+
+It should be treated as of BETA quality - i.e. it seems to work, but
+be careful and don't rely on it more than you have tested it to your
+own satisfaction.
+
+Please send bug reports to olaf.rogalsky@gmail.com.
+
+
+Below please find the original README of the guile2-xlib README.
+
+======================================================================
+
+This is a guile2-xlib, a guile 2.0-compatible fork of guile-xlib.
 
 It should be treated as of BETA quality - i.e. it seems to work, but
 be careful and don't rely on it more than you have tested it to your

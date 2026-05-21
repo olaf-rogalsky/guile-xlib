@@ -1,3 +1,15 @@
+2026-05-26  Olaf Rogalsky  <olaf.rogalsky@gmail.com>
+
+	* xlib.c, xlib.scm, xlib.texi: move into sub-directory src
+	* xlib.c: include string.h
+	* configure.ac, Makefile.am: modernize to autoconf-2.73 and
+	automake-1.18.1; build package in src sub-directory
+	* pkg/arch/PKGBUILD: new arch package generation out of source
+	tree
+	* .gitignore: add generated files
+	* README, AUTHORS, NEWS: update
+	
+	
 2013-01-28  Mark Witmer  <mark@markwitmer.com>
 
 	* xlib.c (everywhere): Replace references to deprecated scheme

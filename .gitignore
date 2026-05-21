@@ -1,0 +1,27 @@
+# autoconf files
+Makefile
+Makefile.in
+aclocal.m4
+config.guess
+config.log
+config.status
+config.sub
+configure
+depcomp
+install-sh
+libtool
+ltmain.sh
+missing
+
+# other files
+*~
+.deps/**
+.libs/**
+autom4te.cache/
+compile
+guile-xlib-*.pkg.tar.zst
+guile-xlib.info
+libguilexlib*
+pkg/arch/guile-xlib*
+texinfo.tex
+xlib.x
